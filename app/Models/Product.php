@@ -10,7 +10,20 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nome',
-        'valor'
+        'name',
+        'value',
     ];
+
+    public function getProductsSearchIndex(string $search1 = '') {
+
+        $product = $this->where(function($query) use ($search1) {
+            if ($search1) {
+                $query->where('name', $search1);
+                $query->orWhere('name', 'LIKE', "%{$search1}%");
+            }
+        })->get();
+
+        return $product;
+
+    }
 }
