@@ -27,7 +27,14 @@
                     <tr>
                         <td>{{$product->name}}</td>
                         <td>{{'R$' . '' . number_format($product->value, 2, ',', '.') }}</td>
-                        <td></td>
+                        <td>
+                          <a href="" class="btn btn-light btn-small">
+                              Edit
+                          </a>
+                          <a href="" class="btn btn-danger btn-small">
+                            Remove
+                        </a>
+                        </td>
                     </tr>
                 @endforeach
               </tbody>
